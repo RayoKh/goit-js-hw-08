@@ -23,17 +23,6 @@ function inputHandler(evt) {
   localStorage.setItem('feedback-form-state', JSON.stringify(data));
 }
 
-// Під час сабміту форми очищуй сховище і поля форми, а також виводь у консоль об'єкт з полями email, message та їхніми поточними значеннями.
-// function onFormSubmit(evt) {
-//   evt.preventDefault();
-
-//   const parsedData = JSON.parse(localStorage.getItem('feedback-form-state'));
-//   console.log(parsedData);
-//   console.log('parsedData');
-
-//   evt.currentTarget.reset();
-// }
-
 function checkLS() {
   const isStorageEmpty = localStorage.getItem('feedback-form-state');
 
