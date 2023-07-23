@@ -7,6 +7,10 @@ const refs = {
   submit: document.querySelector('button'),
 };
 
+const input = document.querySelector('input');
+const textarea = document.querySelector('textarea');
+
+checkLS();
 const data = {};
 
 refs.form.addEventListener('input', throttle(inputHandler), 500);
@@ -15,12 +19,16 @@ refs.form.addEventListener('submit', evt => {
 
   console.log(data);
   evt.currentTarget.reset();
+  localStorage.removeItem('feedback-form-state');
 });
 
 function inputHandler(evt) {
-  data[evt.target.name] = evt.target.value;
+  const feedback = {
+    email: input.value,
+    message: textarea.value,
+  };
 
-  localStorage.setItem('feedback-form-state', JSON.stringify(data));
+  localStorage.setItem('feedback-form-state', JSON.stringify(feedback));
 }
 
 function checkLS() {
@@ -32,5 +40,3 @@ function checkLS() {
     refs.message.value = parsedData.message;
   }
 }
-
-checkLS();

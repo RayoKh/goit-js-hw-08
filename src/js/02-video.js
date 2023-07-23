@@ -20,7 +20,7 @@ player.on(
 
 function checkLS() {
   const currentTime = localStorage.getItem('videoplayer-current-time');
-  if (currentTime === 'null') {
+  if (currentTime === null) {
     return 0;
   }
 
