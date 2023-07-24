@@ -17,7 +17,12 @@ refs.form.addEventListener('input', throttle(inputHandler), 500);
 refs.form.addEventListener('submit', evt => {
   evt.preventDefault();
 
-  console.log(data);
+  const feedback = {
+    email: input.value,
+    message: textarea.value,
+  };
+
+  console.log(feedback);
   evt.currentTarget.reset();
   localStorage.removeItem('feedback-form-state');
 });
